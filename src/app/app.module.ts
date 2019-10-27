@@ -10,7 +10,7 @@ import {ProgresComponent} from './pages/progres/progres.component';
 import {Graficas1Component} from './pages/graficas1/graficas1.component';
 import {HeaderComponent} from './shared/header/header.component';
 import {SidebarComponent} from './shared/sidebar/sidebar.component';
-import {BreadcrumComponent} from './shared/breadcrum/breadcrum.component';
+import {BreadcrumbComponent} from './shared/breadcrumb/breadcrumb.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +23,7 @@ import {BreadcrumComponent} from './shared/breadcrum/breadcrum.component';
     Graficas1Component,
     HeaderComponent,
     SidebarComponent,
-    BreadcrumComponent
+    BreadcrumbComponent
   ],
   imports: [
     BrowserModule
