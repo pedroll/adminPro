@@ -11,6 +11,8 @@ import {Graficas1Component} from './pages/graficas1/graficas1.component';
 import {HeaderComponent} from './shared/header/header.component';
 import {SidebarComponent} from './shared/sidebar/sidebar.component';
 import {BreadcrumbComponent} from './shared/breadcrumb/breadcrumb.component';
+import {RouterModule} from '@angular/router';
+import {AppRoutingModule} from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import {BreadcrumbComponent} from './shared/breadcrumb/breadcrumb.component';
     BreadcrumbComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
