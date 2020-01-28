@@ -5,8 +5,6 @@ import {SidebarComponent} from "./sidebar/sidebar.component";
 import {BreadcrumbComponent} from "./breadcrumb/breadcrumb.component";
 import {PagenofoundComponent} from "./pagenofound/pagenofound.component";
 
-
-
 @NgModule({
   declarations: [
     HeaderComponent,
