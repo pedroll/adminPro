@@ -6,7 +6,6 @@ import {PagesComponent} from "./pages.component";
 import {DashboardComponent} from "./dashboard/dashboard.component";
 import {ProgresComponent} from "./progres/progres.component";
 import {Graficas1Component} from "./graficas1/graficas1.component";
-import {PagenofoundComponent} from "../shared/pagenofound/pagenofound.component";
 
 const pagesRoutes: Routes = [
   {
@@ -18,7 +17,6 @@ const pagesRoutes: Routes = [
       {path: 'progress', component: ProgresComponent},
       {path: 'graficas1', component: Graficas1Component},
       {path: '', pathMatch: 'full', redirectTo: '/dashboard'},
-      {path: '**', component: PagenofoundComponent},
 
     ]
   }
