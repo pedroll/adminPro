@@ -1,31 +1,36 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {DashboardComponent} from "./dashboard/dashboard.component";
-import {ProgresComponent} from "./progres/progres.component";
-import {Graficas1Component} from "./graficas1/graficas1.component";
-import {PagesComponent} from "./pages.component";
+
+// Modulos
 import {SharedModule} from "../shared/shared.module";
+
+
+// Componentes
+import {PagesComponent} from "./pages.component";
+import {Graficas1Component} from "./graficas1/graficas1.component";
+import {ProgresComponent} from "./progres/progres.component";
+import {DashboardComponent} from "./dashboard/dashboard.component";
+import {PagesRoutingModule} from './pages-routing.module';
 
 
 
 @NgModule({
   declarations: [
+    PagesComponent,
     DashboardComponent,
     ProgresComponent,
-    Graficas1Component,
-    PagesComponent,
-
-  ],
-  exports: [
-    DashboardComponent,
-    ProgresComponent,
-    Graficas1Component,
-    PagesComponent,
-
+    Graficas1Component
   ],
   imports: [
     CommonModule,
-    SharedModule
+    SharedModule,
+    PagesRoutingModule
+  ],
+  exports:[
+    PagesComponent,
+    DashboardComponent,
+    ProgresComponent,
+    Graficas1Component
   ]
 })
 export class PagesModule { }
