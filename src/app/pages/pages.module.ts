@@ -12,7 +12,9 @@ import {ProgresComponent} from './progres/progres.component';
 import {DashboardComponent} from './dashboard/dashboard.component';
 // temporal
 import {IncrementadorComponent} from '../componentes/incrementador/incrementador.component';
-
+// ng2-charts
+import {ChartsModule} from 'ng2-charts';
+import {DonutchartComponent} from '../componentes/donutchart/donutchart.component';
 
 @NgModule({
   declarations: [
@@ -20,13 +22,15 @@ import {IncrementadorComponent} from '../componentes/incrementador/incrementador
     DashboardComponent,
     ProgresComponent,
     Graficas1Component,
-    IncrementadorComponent
+    IncrementadorComponent,
+    DonutchartComponent
   ],
   imports: [
     CommonModule,
     SharedModule,
     PagesRoutingModule,
-    FormsModule
+    FormsModule,
+    ChartsModule
   ],
   exports: [
     PagesComponent,
