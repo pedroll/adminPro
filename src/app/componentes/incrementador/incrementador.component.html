@@ -1,0 +1,20 @@
+<h3>{{leyenda}}</h3>
+
+<div class="input-group mb-3">
+  <div class="input-group-prepend" id="button-addon3">
+    <button class="btn btn-primary" type="button" (click)="cambiarValor(-5)">
+      <i class="mdi mdi-minus"></i>
+    </button>
+  </div>
+
+  <input name="porcentaje" [(ngModel)]="porcentaje"
+         type="text" class="form-control" placeholder=""
+         aria-label="Example text with two button addons"
+         aria-describedby="button-addon3">
+
+  <div class="input-group-append" id="button-addon4">
+    <button class="btn btn-primary" type="button" (click)="cambiarValor(5)">
+      <i class="mdi mdi-plus"></i>
+    </button>
+  </div>
+</div>

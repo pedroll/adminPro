@@ -10,6 +10,8 @@ import {PagesComponent} from './pages.component';
 import {Graficas1Component} from './graficas1/graficas1.component';
 import {ProgresComponent} from './progres/progres.component';
 import {DashboardComponent} from './dashboard/dashboard.component';
+// temporal
+import {IncrementadorComponent} from '../componentes/incrementador/incrementador.component';
 
 
 @NgModule({
@@ -17,7 +19,8 @@ import {DashboardComponent} from './dashboard/dashboard.component';
     PagesComponent,
     DashboardComponent,
     ProgresComponent,
-    Graficas1Component
+    Graficas1Component,
+    IncrementadorComponent
   ],
   imports: [
     CommonModule,

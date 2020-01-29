@@ -1,9 +1,9 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import {HeaderComponent} from "./header/header.component";
-import {SidebarComponent} from "./sidebar/sidebar.component";
-import {BreadcrumbComponent} from "./breadcrumb/breadcrumb.component";
-import {PagenofoundComponent} from "./pagenofound/pagenofound.component";
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {HeaderComponent} from './header/header.component';
+import {SidebarComponent} from './sidebar/sidebar.component';
+import {BreadcrumbComponent} from './breadcrumb/breadcrumb.component';
+import {PagenofoundComponent} from './pagenofound/pagenofound.component';
 
 @NgModule({
   declarations: [
@@ -15,11 +15,12 @@ import {PagenofoundComponent} from "./pagenofound/pagenofound.component";
   imports: [
     CommonModule
   ],
-  exports:[
+  exports: [
     HeaderComponent,
     SidebarComponent,
     BreadcrumbComponent,
     PagenofoundComponent,
   ]
 })
-export class SharedModule { }
+export class SharedModule {
+}
