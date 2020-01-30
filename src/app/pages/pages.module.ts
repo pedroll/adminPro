@@ -15,6 +15,7 @@ import {IncrementadorComponent} from '../componentes/incrementador/incrementador
 // ng2-charts
 import {ChartsModule} from 'ng2-charts';
 import {DonutchartComponent} from '../componentes/donutchart/donutchart.component';
+import {AccountSettingsComponent} from './account-settings/account-settings.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import {DonutchartComponent} from '../componentes/donutchart/donutchart.componen
     ProgresComponent,
     Graficas1Component,
     IncrementadorComponent,
-    DonutchartComponent
+    DonutchartComponent,
+    AccountSettingsComponent
   ],
   imports: [
     CommonModule,
