@@ -1,5 +1,5 @@
-import {Component, Inject, OnInit} from '@angular/core';
-import {DOCUMENT} from '@angular/common';
+import {Component, OnInit} from '@angular/core';
+import {SettingsService} from '../../services/settings.service';
 
 @Component({
   selector: 'app-account-settings',
@@ -9,18 +9,23 @@ import {DOCUMENT} from '@angular/common';
 export class AccountSettingsComponent implements OnInit {
 
   //
-  constructor(@Inject(DOCUMENT) private _document) {
+  constructor(public ajustesservice: SettingsService) {
+
   }
 
   ngOnInit() {
+    const itemaActivo: HTMLCollection = document.getElementsByClassName(this.ajustesservice.ajustes.tema + '-theme');
+    itemaActivo[0].classList.add('working');
   }
 
   cambiarColor(tema: string, link: HTMLAnchorElement) {
 
+    // utilizamos servicio y guardamos en localstorage
+    this.ajustesservice.ajustes.tema = tema;
+    this.ajustesservice.guardarAjustes();
+
     this.aplicarCheck(link);
     console.log(tema);
-    const url = `assets/css/colors/${tema}.css`;
-    this._document.getElementById('tema').setAttribute('href', url);
   }
 
 
@@ -29,12 +34,12 @@ export class AccountSettingsComponent implements OnInit {
     const selectores: HTMLCollection = document.getElementsByClassName('working');
     // document.getElementsByClassName(link.className).add
 
+    // @ts-ignore
     for (let ref of selectores) {
 
       console.log(ref);
       ref.classList.remove('working');
     }
-
 
     link.classList.add('working');
   }
