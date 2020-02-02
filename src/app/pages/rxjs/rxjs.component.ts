@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Observable, Subscriber} from 'rxjs';
-import {map, retry} from 'rxjs/operators';
+import {filter, map} from 'rxjs/operators';
 
 @Component({
   selector: 'app-rxjs',
@@ -14,20 +14,22 @@ export class RxjsComponent implements OnInit {
   constructor() {
 
 
-    // el pipe nos permite hacer transformacion de datos
-    this.regresaObservable().pipe(
-      // retry(2) // numero de reintentosm se ejecutaria 3 vecesm apesar del error en 2 continua hasta complete
-    ).subscribe(
-      numero => console.log('Subscripcion', numero),             // next
-      error => console.error('Error en el observador:', error), // error
-      () => console.log('El observador terminó')                      // complete
-    );
+    // el pipe nos permite hacer transformación de datos
+    this.regresaObservable()
+      //   .pipe(
+      //   // retry(2) // numero de reintentos, se ejecutaría 3 veces, a pesar del error en 2 continua hasta complete
+      // )
+      .subscribe(
+        numero => console.log('Subscripción', numero),             // next
+        error => console.error('Error en el observador:', error), // error
+        () => console.log('El observador terminó')                      // complete
+      );
 
   }
 
   regresaObservable(): Observable<any> {
-
     let contador = 0;
+
     return new Observable((observer: Subscriber<any>) => {
       let intervalo = setInterval(() => {
 
@@ -36,9 +38,10 @@ export class RxjsComponent implements OnInit {
         const salida = {
           valor: contador
         };
+
         observer.next(salida);
 
-        if (contador === 2) {
+        if (contador === 3) {
           clearInterval(intervalo);
           observer.complete();
         }
@@ -54,6 +57,20 @@ export class RxjsComponent implements OnInit {
         map(
           resp => {
             return resp.valor;
+          }
+        ),       //podemos concatenar multiples operadores
+        // filter devuelve valor cuando true
+        filter(
+          (valor, index) => {
+            console.log(valor, index);
+            if (valor % 2 === 1) {
+              // impar
+              return true;
+            } else {
+              // par
+              return false;
+            }
+
           }
         )
       );
