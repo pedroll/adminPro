@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivationEnd, Router} from '@angular/router';
 import {filter, map} from 'rxjs/operators';
-import {RxjsComponent} from '../../pages/rxjs/rxjs.component';
+import {Meta, MetaDefinition, Title} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-breadcrumb',
@@ -9,14 +9,24 @@ import {RxjsComponent} from '../../pages/rxjs/rxjs.component';
   styleUrls: ['./breadcrumb.component.css']
 })
 export class BreadcrumbComponent implements OnInit {
-  titulo: string;
 
-  constructor(private  router: Router) {
+  constructor(private  router: Router,
+              private title: Title,
+              private meta: Meta) {
 
     this.getDataroute().subscribe(data => {
-      console.log(data);
-      this.titulo = data.titulo;
+      // console.log(data.descripcion);
+      // console.log(data);
+      this.title.setTitle(data.titulo);
+      const metaTag: MetaDefinition = {
+        name: 'Description',
+        content: data.descripcion
+      };
+      meta.updateTag(metaTag);
+      // meta.addTag({name: 'viewport', content: 'width=device-width, initial-scale=1'});
     });
+
+
   }
 
   ngOnInit() {

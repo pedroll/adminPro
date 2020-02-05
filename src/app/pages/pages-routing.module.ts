@@ -16,12 +16,31 @@ const pagesRoutes: Routes = [
     component: PagesComponent,
     children: [
 
-      {path: 'dashboard', component: DashboardComponent, data: {titulo: 'Dashboard'}},
-      {path: 'progress', component: ProgresComponent, data: {titulo: 'Progress'}},
-      {path: 'graficas1', component: Graficas1Component, data: {titulo: 'Graficas'}},
-      {path: 'promesas', component: PromesasComponent, data: {titulo: 'Promesas'}},
-      {path: 'rxjs', component: RxjsComponent, data: {titulo: 'Rxjs'}},
-      {path: 'account-settings', component: AccountSettingsComponent, data: {titulo: 'Ajustes de cuenta'}},
+      {
+        path: 'dashboard', component: DashboardComponent,
+        data: {titulo: 'Dashboard', descripcion: 'Descripcion fascinante de Dashboard'}
+      },
+      {
+        path: 'progress', component: ProgresComponent,
+        data: {titulo: 'Progress', descripcion: 'Descripcion fascinante de Progress'}
+      },
+      {
+        path: 'graficas1', component: Graficas1Component,
+        data: {titulo: 'Graficas', descripcion: 'Descripcion fascinante de Graficas'}
+      },
+      {
+        path: 'promesas', component: PromesasComponent,
+        data: {titulo: 'Promesas', descripcion: 'Descripcion fascinante de Promesas'}
+      },
+      {
+        path: 'rxjs', component: RxjsComponent,
+        data: {titulo: 'Rxjs', descripcion: 'Descripcion fascinante de Rxjs'}
+      },
+      {
+        path: 'account-settings',
+        component: AccountSettingsComponent,
+        data: {titulo: 'Ajustes de cuenta', descripcion: 'Descripcion fascinante de Dashboard'}
+      },
       {path: '', pathMatch: 'full', redirectTo: '/dashboard'},
 
     ]
