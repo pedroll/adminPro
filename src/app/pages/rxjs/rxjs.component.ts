@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {Observable, Subscriber} from 'rxjs';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Observable, Subscriber, Subscription} from 'rxjs';
 import {filter, map} from 'rxjs/operators';
 
 @Component({
@@ -7,15 +7,16 @@ import {filter, map} from 'rxjs/operators';
   templateUrl: './rxjs.component.html',
   styles: []
 })
-export class RxjsComponent implements OnInit {
+export class RxjsComponent implements OnInit, OnDestroy {
 
   code = '';
+  subscription: Subscription;
 
   constructor() {
 
 
     // el pipe nos permite hacer transformación de datos
-    this.regresaObservable()
+    this.subscription = this.regresaObservable()
       //   .pipe(
       //   // retry(2) // numero de reintentos, se ejecutaría 3 veces, a pesar del error en 2 continua hasta complete
       // )
@@ -31,7 +32,7 @@ export class RxjsComponent implements OnInit {
     let contador = 0;
 
     return new Observable((observer: Subscriber<any>) => {
-      let intervalo = setInterval(() => {
+      const intervalo = setInterval(() => {
 
         ++contador;
         // en lugar de un valor utilizamos un objeto como es usual en las api
@@ -41,10 +42,10 @@ export class RxjsComponent implements OnInit {
 
         observer.next(salida);
 
-        if (contador === 3) {
-          clearInterval(intervalo);
-          observer.complete();
-        }
+        // if (contador === 3) {
+        //   clearInterval(intervalo);
+        //   observer.complete();
+        // }
 
         // if (contador === 2) {
         //   //clearInterval(intervalo);
@@ -58,7 +59,7 @@ export class RxjsComponent implements OnInit {
           resp => {
             return resp.valor;
           }
-        ),       //podemos concatenar multiples operadores
+        ),       // podemos concatenar multiples operadores
         // filter devuelve valor cuando true
         filter(
           (valor, index) => {
@@ -77,6 +78,11 @@ export class RxjsComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  ngOnDestroy(): void {
+    console.log('la pagina se va ha cerrar.');
+    this.subscription.unsubscribe();
   }
 
 }
