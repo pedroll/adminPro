@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-register',
@@ -42,6 +43,17 @@ export class RegisterComponent implements OnInit {
     console.log('Formulario valido', this.formularioRegistro.valid);
     console.log(this.formularioRegistro.value);
     console.log(this.formularioRegistro);
+    if (this.formularioRegistro.invalid) {
+      return;
+    }
+    if (!this.formularioRegistro.value.condiciones) {
+      Swal.fire({
+        title: 'Aceptar los términos es obligatorio.',
+        icon: 'info'
+      });
+      return;
+    }
+
   }
 
   sonIguales(campo1: string, campo2: string) {
