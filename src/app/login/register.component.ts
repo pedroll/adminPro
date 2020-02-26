@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import Swal from 'sweetalert2';
+import {UsuarioService} from '../services/usuario/usuario.service';
+import {Usuario} from '../models/usuario.model';
 
 @Component({
   selector: 'app-register',
@@ -11,7 +13,7 @@ export class RegisterComponent implements OnInit {
 
   formularioRegistro: FormGroup;
 
-  constructor() {
+  constructor(public usuarioService: UsuarioService) {
   }
 
   ngOnInit() {
@@ -54,6 +56,16 @@ export class RegisterComponent implements OnInit {
       return;
     }
 
+    // creamos el usuario a registrar conforme ele modelo
+    let usuario = new Usuario(
+      this.formularioRegistro.value.nombre,
+      this.formularioRegistro.value.correo,
+      this.formularioRegistro.value.password
+    );
+    this.usuarioService.crearUsuario(usuario)
+      .subscribe(resp => {
+        console.log(resp);
+      });
   }
 
   sonIguales(campo1: string, campo2: string) {

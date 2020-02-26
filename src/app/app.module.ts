@@ -1,4 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
+import {HttpClientModule} from '@angular/common/http';
 import {NgModule} from '@angular/core';
 // Modulos
 import {PagesModule} from './pages/pages.module';
@@ -28,6 +29,7 @@ import {SweetAlert2Module} from '@sweetalert2/ngx-sweetalert2';
     FormsModule,
     ReactiveFormsModule,
     [SweetAlert2Module.forRoot()],
+    HttpClientModule
 
   ],
   providers: [],
