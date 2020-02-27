@@ -12,12 +12,18 @@ import {Usuario} from '../models/usuario.model';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(public  router: Router,
+  email: string;
+  recuerdame = false;
+
+  constructor(public router: Router,
               public usuarioService: UsuarioService) {
   }
 
   ngOnInit() {
-
+    this.email = localStorage.getItem('email') || '';
+    if (this.email.length > 0) {
+      this.recuerdame = true;
+    }
 
   }
 
