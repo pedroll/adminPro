@@ -26,8 +26,11 @@ export class LoginComponent implements OnInit {
     // if (formulario.invalid) { return; }
 
     const usuario = new Usuario(null, formulario.value.email, formulario.value.password);
-    this.usuarioService.login(usuario).subscribe(resp => console.log(resp));
-    // this.router.navigate(['/dashboard']);
+    console.log('Ingresando', formulario.value);
+
+    this.usuarioService.login(usuario, formulario.value.recordarme).subscribe((correcto) => {
+      this.router.navigate(['/dashboard']);
+    });
   }
 
 
