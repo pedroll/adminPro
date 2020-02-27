@@ -13,13 +13,24 @@ export class UsuarioService {
   constructor(public http: HttpClient) {
   }
 
+  login(usuario: Usuario) {
+    const url = environment.backendUrl + '/login';
+    return this.http.post(url, usuario);
+  }
+
   crearUsuario(usuario: Usuario) {
-    let url = environment.backendUrl + '/users';
+
+    const url = environment.backendUrl + '/users';
 
     return this.http.post(url, usuario)
       .pipe(
         map((resp: any) => {
-            Swal.fire('usuario creado', usuario.email, 'success');
+            // Swal.fire({
+            //            title: 'usuario creado',
+            //            icon: 'success',
+            //            html: usuario.email
+            //          });
+
             return resp.usuario;
           }
         ));

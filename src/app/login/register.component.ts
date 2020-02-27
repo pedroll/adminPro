@@ -33,7 +33,7 @@ export class RegisterComponent implements OnInit {
         validators: this.sonIguales('password', 'password2')
       });
 
-    //rellenamos el formulario automático para desarrollo
+    // rellenamos el formulario automático para desarrollo
     this.formularioRegistro.setValue({
       nombre: 'Test',
       correo: 'test@tes.com',
@@ -59,7 +59,7 @@ export class RegisterComponent implements OnInit {
     }
 
     // creamos el usuario a registrar conforme ele modelo
-    let usuario = new Usuario(
+    const usuario = new Usuario(
       this.formularioRegistro.value.nombre,
       this.formularioRegistro.value.correo,
       this.formularioRegistro.value.password
@@ -67,6 +67,12 @@ export class RegisterComponent implements OnInit {
     this.usuarioService.crearUsuario(usuario)
       .subscribe(resp => {
         console.log(resp);
+        Swal.fire({
+          title: 'usuario creado',
+          icon: 'success',
+          html: usuario.email
+        });
+
         this.router.navigate(['/login']);
       });
   }
@@ -75,11 +81,11 @@ export class RegisterComponent implements OnInit {
 
     return (group: FormGroup) => {
 
-      let pass1 = group.controls[campo1].value;
-      let pass2 = group.controls[campo2].value;
+      const pass1 = group.controls[campo1].value;
+      const pass2 = group.controls[campo2].value;
 
       if (pass1 === pass2) {
-        //el error es null
+        // el error es null
         return null;
       }
       // retorna el error de validacion

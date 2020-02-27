@@ -12,8 +12,6 @@ import {LoginComponent} from './login/login.component';
 import {RegisterComponent} from './login/register.component';
 // temporal
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-// alerts
-import {SweetAlert2Module} from '@sweetalert2/ngx-sweetalert2';
 
 @NgModule({
   declarations: [
@@ -28,7 +26,6 @@ import {SweetAlert2Module} from '@sweetalert2/ngx-sweetalert2';
     PagesModule,
     FormsModule,
     ReactiveFormsModule,
-    [SweetAlert2Module.forRoot()],
     HttpClientModule
 
   ],

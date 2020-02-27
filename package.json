@@ -19,7 +19,6 @@
     "@angular/platform-browser": "~8.2.11",
     "@angular/platform-browser-dynamic": "~8.2.11",
     "@angular/router": "~8.2.11",
-    "@sweetalert2/ngx-sweetalert2": "^8.0.0",
     "chart.js": "^2.9.3",
     "ng2-charts": "^2.3.0",
     "ngx-highlightjs": "^4.0.2",
