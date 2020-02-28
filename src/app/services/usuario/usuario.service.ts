@@ -9,7 +9,32 @@ import {map} from 'rxjs/operators';
 })
 export class UsuarioService {
 
+  usuario: Usuario;
+  token: string;
+
   constructor(public http: HttpClient) {
+  }
+
+  loginGoogle(token) {
+
+    // if (recordar) {
+    //   localStorage.setItem('email', usuario.email);
+    // } else {
+    //   localStorage.removeItem('email');
+    // }
+
+    const url = environment.backendUrl + '/login/google';
+    return this.http.post(url, {token})
+      .pipe(
+        map(
+          (resp: any) => {
+            this.guardarStorage(resp.id, resp.token, resp.usuario);
+            // borramos email  del login local previo
+            localStorage.removeItem('email');
+            return true;
+          }
+        )
+      );
   }
 
   login(usuario: Usuario, recordar: boolean = false) {
@@ -25,21 +50,27 @@ export class UsuarioService {
       .pipe(
         map(
           (resp: any) => {
-            localStorage.setItem('id', resp.id);
-            localStorage.setItem('token', resp.token);
-            localStorage.setItem('usuario', JSON.stringify(resp.usuario));
-
+            this.guardarStorage(resp.id, resp.token, resp.usuario);
             return true;
           }
         )
       );
   }
 
+  guardarStorage(id: string, token: string, usuario: Usuario) {
+    localStorage.setItem('id', id);
+    localStorage.setItem('token', token);
+    localStorage.setItem('usuario', JSON.stringify(usuario));
+
+    this.usuario = usuario;
+    this.token = token;
+  }
+
   crearUsuario(usuario: Usuario) {
 
     const url = environment.backendUrl + '/users';
 
-    return this.http.post(url, usuario)
+    return this.http.post(url, {usuario})
       .pipe(
         map((resp: any) => {
             // Swal.fire({
