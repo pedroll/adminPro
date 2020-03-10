@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, NgZone, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {NgForm} from '@angular/forms';
 import {UsuarioService} from '../services/usuario/usuario.service';
@@ -22,7 +22,8 @@ export class LoginComponent implements OnInit {
 
 
   constructor(public router: Router,
-              public usuarioService: UsuarioService) {
+              public usuarioService: UsuarioService,
+              private ngZone: NgZone) {
 
   }
 
@@ -69,7 +70,10 @@ export class LoginComponent implements OnInit {
       console.log('tokenGoogle', tokenGoogle);
 
       this.usuarioService.loginGoogle(tokenGoogle).subscribe((correcto) => {
-        this.router.navigate(['/dashboard']);
+        // fix navigate outside zone
+        console.log('respuesta servidor backend login google');
+        this.ngZone.run(() => this.router.navigate(['/dashboard'])).then();
+        // this.router.navigate(['/dashboard']);
       });
 
     });
@@ -89,7 +93,9 @@ export class LoginComponent implements OnInit {
     console.log('Ingresando', formulario.value);
 
     this.usuarioService.login(usuario, formulario.value.recordarme).subscribe((correcto) => {
-      this.router.navigate(['/dashboard']);
+      // fix navigate outside zone
+      this.ngZone.run(() => this.router.navigate(['/dashboard'])).then();
+      // this.router.navigate(['/dashboard']);
     });
   }
 

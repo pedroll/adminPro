@@ -13,9 +13,14 @@ export class UsuarioService {
   token: string;
 
   constructor(public http: HttpClient) {
+    this.cargarStorage();
   }
 
-  loginGoogle(token) {
+  estaLogeado() {
+    return (this.token.length >= 5) ? true : false;
+  }
+
+  loginGoogle(tokenGoogle) {
 
     // if (recordar) {
     //   localStorage.setItem('email', usuario.email);
@@ -24,10 +29,12 @@ export class UsuarioService {
     // }
 
     const url = environment.backendUrl + '/login/google';
-    return this.http.post(url, {token})
+    console.log('enviando tokenGoogle');
+    return this.http.post(url, {token: tokenGoogle})
       .pipe(
         map(
           (resp: any) => {
+            console.log('respuesta', resp);
             this.guardarStorage(resp.id, resp.token, resp.usuario);
             // borramos email  del login local previo
             localStorage.removeItem('email');
@@ -66,6 +73,17 @@ export class UsuarioService {
     this.token = token;
   }
 
+  cargarStorage() {
+    // todo: existe token, pero es valido?
+    if (localStorage.getItem('token')) {
+      this.token = localStorage.getItem('token');
+      this.usuario = JSON.parse(localStorage.getItem('usuario'));
+    } else {
+      this.token = '';
+      this.usuario = null;
+    }
+  }
+
   crearUsuario(usuario: Usuario) {
 
     const url = environment.backendUrl + '/users';
@@ -73,8 +91,8 @@ export class UsuarioService {
     return this.http.post(url, {usuario})
       .pipe(
         map((resp: any) => {
-            // Swal.fire({
-            //            title: 'usuario creado',
+          // Swal.fire({
+          //            title: 'usuario creado',
             //            icon: 'success',
             //            html: usuario.email
             //          });
