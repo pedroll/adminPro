@@ -318,7 +318,9 @@
               <li class="divider" role="separator"></li>
               <li><a href="#"><i class="ti-settings"></i> Account Setting</a></li>
               <li class="divider" role="separator"></li>
-              <li><a href="#"><i class="fa fa-power-off"></i> Logout</a></li>
+              <li><a (click)="usuarioService.logout()"
+                     class="pointer"
+              ><i class="fa fa-power-off"></i> Logout</a></li>
             </ul>
           </div>
         </li>

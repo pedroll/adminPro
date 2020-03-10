@@ -3,6 +3,7 @@ import {Usuario} from '../../models/usuario.model';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../../environments/environment';
 import {map} from 'rxjs/operators';
+import {Router} from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,9 @@ export class UsuarioService {
   usuario: Usuario;
   token: string;
 
-  constructor(public http: HttpClient) {
+  constructor(public http: HttpClient,
+              public  router: Router
+  ) {
     this.cargarStorage();
   }
 
@@ -42,6 +45,17 @@ export class UsuarioService {
           }
         )
       );
+  }
+
+  logout() {
+    this.usuario = null;
+    this.token = '';
+
+    // localStorage.clear();
+    localStorage.removeItem('token');
+    localStorage.removeItem('usuario');
+
+    this.router.navigate(['/login']);
   }
 
   login(usuario: Usuario, recordar: boolean = false) {
@@ -91,8 +105,8 @@ export class UsuarioService {
     return this.http.post(url, {usuario})
       .pipe(
         map((resp: any) => {
-          // Swal.fire({
-          //            title: 'usuario creado',
+            // Swal.fire({
+            //            title: 'usuario creado',
             //            icon: 'success',
             //            html: usuario.email
             //          });
