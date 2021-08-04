@@ -1,8 +1,8 @@
 import {Component, NgZone, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {NgForm} from '@angular/forms';
-import {UsuarioService} from '../services/usuario/usuario.service';
-import {Usuario} from '../models/usuario.model';
+import {UsuarioService} from '../../services/usuario/usuario.service';
+import {Usuario} from '../../models/usuario.model';
 
 declare const gapi: any;
 

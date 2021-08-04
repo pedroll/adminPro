@@ -52,7 +52,7 @@ const pagesRoutes: Routes = [
 @NgModule({
   declarations: [],
   // utilizamos forchild por que no es el router principal
-  // y lo importamos en el pagesmodule
+  // y lo importamos en el pagesmodule y approuting
   imports: [
     RouterModule.forChild(pagesRoutes)
   ],

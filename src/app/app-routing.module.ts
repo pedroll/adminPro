@@ -2,15 +2,14 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {PagesRoutingModule} from './pages/pages-routing.module';
 
-import {LoginComponent} from './auth/login.component';
-import {RegisterComponent} from './auth/register.component';
+import {LoginComponent} from './auth/login/login.component';
+import {RegisterComponent} from './auth/register/register.component';
 import {PagenofoundComponent} from './errors/pagenofound/pagenofound.component';
+import {AuthRoutingRoutingModule} from "./auth/auth-routing.module";
 
 const routes: Routes = [
 
-  // nos llevamos esto su propio approuting en el modulo pages
-  {path: 'login', component: LoginComponent},
-  {path: 'register', component: RegisterComponent},
+
   {
     path: '**',
     component: PagenofoundComponent,
@@ -21,7 +20,8 @@ const routes: Routes = [
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, { useHash: true, relativeLinkResolution: 'legacy' }),
-    PagesRoutingModule],
+    PagesRoutingModule,
+    AuthRoutingRoutingModule],
   exports: [RouterModule]
 })
 export class AppRoutingModule {
