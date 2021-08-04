@@ -2,12 +2,8 @@ import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-pagenofound',
-  template: `
-      <p>
-          pagenofound works!
-      </p>
-  `,
-  styles: []
+  templateUrl: './pagenofound.component.html',
+  styleUrls: ['./pagenofound.component.css']
 })
 export class PagenofoundComponent implements OnInit {
 

@@ -10,6 +10,7 @@ import {AccountSettingsComponent} from './account-settings/account-settings.comp
 import {PromesasComponent} from './promesas/promesas.component';
 import {RxjsComponent} from './rxjs/rxjs.component';
 import {LoginGuard} from '../services/guards/login.guard';
+import {PagenofoundComponent} from "./pagenofound/pagenofound.component";
 
 const pagesRoutes: Routes = [
   {
@@ -44,6 +45,11 @@ const pagesRoutes: Routes = [
         data: {titulo: 'Ajustes de cuenta', descripcion: 'Descripcion fascinante de Dashboard'}
       },
       {path: '', pathMatch: 'full', redirectTo: '/dashboard'},
+      {
+        path: '**',
+        component: PagenofoundComponent,
+        data: {titulo: 'Pagina no encontrada', descripcion: 'Descripcion fascinante de Pagina no encontrada'}
+      },
 
     ]
   }

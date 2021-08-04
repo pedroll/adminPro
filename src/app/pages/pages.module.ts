@@ -13,6 +13,7 @@ import {DashboardComponent} from './dashboard/dashboard.component';
 import {PromesasComponent} from './promesas/promesas.component';
 import {RxjsComponent} from './rxjs/rxjs.component';
 import {AccountSettingsComponent} from './account-settings/account-settings.component';
+import {PagenofoundComponent} from './pagenofound/pagenofound.component';
 // temporal
 import {IncrementadorComponent} from '../componentes/incrementador/incrementador.component';
 // ng2-charts
@@ -45,7 +46,8 @@ export function getHighlightLanguages() {
     DonutchartComponent,
     AccountSettingsComponent,
     PromesasComponent,
-    RxjsComponent
+    RxjsComponent,
+    PagenofoundComponent
 
   ],
   imports: [

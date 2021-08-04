@@ -5,14 +5,12 @@ import {RouterModule} from '@angular/router';
 import {HeaderComponent} from './header/header.component';
 import {SidebarComponent} from './sidebar/sidebar.component';
 import {BreadcrumbComponent} from './breadcrumb/breadcrumb.component';
-import {PagenofoundComponent} from './pagenofound/pagenofound.component';
 
 @NgModule({
   declarations: [
     HeaderComponent,
     SidebarComponent,
     BreadcrumbComponent,
-    PagenofoundComponent
   ],
   imports: [
     CommonModule,
@@ -22,7 +20,6 @@ import {PagenofoundComponent} from './pagenofound/pagenofound.component';
     HeaderComponent,
     SidebarComponent,
     BreadcrumbComponent,
-    PagenofoundComponent,
   ]
 })
 export class SharedModule {
