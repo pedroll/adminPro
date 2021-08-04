@@ -3,31 +3,28 @@ import {HttpClientModule} from '@angular/common/http';
 import {NgModule} from '@angular/core';
 // Modulos
 import {PagesModule} from './pages/pages.module';
+import {AuthModule} from './auth/auth.module';
+import {ErrorsModule} from './errors/errors.module';
+
 // Rutas
 import {RouterModule} from '@angular/router';
 import {AppRoutingModule} from './app-routing.module';
 // componentes
 import {AppComponent} from './app.component';
-import {LoginComponent} from './login/login.component';
-import {RegisterComponent} from './login/register.component';
-// temporal
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
-    RegisterComponent,
+
   ],
   imports: [
     BrowserModule,
     RouterModule,
+    HttpClientModule,
     AppRoutingModule,
     PagesModule,
-    FormsModule,
-    ReactiveFormsModule,
-    HttpClientModule
-
+    AuthModule,
+    ErrorsModule
   ],
   providers: [],
   exports: [],

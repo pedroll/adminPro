@@ -10,7 +10,7 @@ import {BreadcrumbComponent} from './breadcrumb/breadcrumb.component';
   declarations: [
     HeaderComponent,
     SidebarComponent,
-    BreadcrumbComponent,
+    BreadcrumbComponent
   ],
   imports: [
     CommonModule,

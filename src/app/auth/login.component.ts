@@ -71,7 +71,7 @@ export class LoginComponent implements OnInit {
 
       this.usuarioService.loginGoogle(tokenGoogle).subscribe((correcto) => {
         // fix navigate outside zone
-        console.log('respuesta servidor backend login google');
+        console.log('respuesta servidor backend auth google');
         this.ngZone.run(() => this.router.navigate(['/dashboard'])).then();
         // this.router.navigate(['/dashboard']);
       });
