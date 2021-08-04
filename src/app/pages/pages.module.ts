@@ -14,10 +14,10 @@ import {PromesasComponent} from './promesas/promesas.component';
 import {RxjsComponent} from './rxjs/rxjs.component';
 import {AccountSettingsComponent} from './account-settings/account-settings.component';
 // temporal
-import {IncrementadorComponent} from '../componentes/incrementador/incrementador.component';
+import {IncrementadorComponent} from '../components/incrementador/incrementador.component';
 // ng2-charts
 import {ChartsModule} from 'ng2-charts';
-import {DonutchartComponent} from '../componentes/donutchart/donutchart.component';
+import {DonutchartComponent} from '../components/donutchart/donutchart.component';
 // mostrar codigo
 import {HIGHLIGHT_OPTIONS, HighlightModule} from 'ngx-highlightjs';
 

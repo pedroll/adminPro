@@ -14,13 +14,13 @@ import {PagenofoundComponent} from "../errors/pagenofound/pagenofound.component"
 
 const pagesRoutes: Routes = [
   {
-    path: '',
+    path: 'dashboard',
     component: PagesComponent,
     canActivate: [LoginGuard],
     children: [
 
       {
-        path: 'dashboard', component: DashboardComponent,
+        path: '', component: DashboardComponent,
         data: {titulo: 'Dashboard', descripcion: 'Descripcion fascinante de Dashboard'}
       },
       {
@@ -43,8 +43,7 @@ const pagesRoutes: Routes = [
         path: 'account-settings',
         component: AccountSettingsComponent,
         data: {titulo: 'Ajustes de cuenta', descripcion: 'Descripcion fascinante de Dashboard'}
-      },
-      {path: '', pathMatch: 'full', redirectTo: '/dashboard'}
+      }
     ]
   }
 ];

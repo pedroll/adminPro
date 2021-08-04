@@ -9,9 +9,11 @@ import {AuthRoutingRoutingModule} from "./auth/auth-routing.module";
 
 const routes: Routes = [
 
-
+  {path: '', pathMatch: 'full', redirectTo: '/dashboard'},
   {
-    path: '**',
+    // path: dashboard pages-routing
+    // path: login auth-routing
+    // path: register auth-routing
     component: PagenofoundComponent,
     data: {titulo: 'Pagina no encontrada', descripcion: 'Descripcion fascinante de Pagina no encontrada'}
   },
