@@ -11,7 +11,7 @@ import {Meta, MetaDefinition, Title} from '@angular/platform-browser';
 export class BreadcrumbComponent implements OnInit {
 
   constructor(private  router: Router,
-              private title: Title,
+              public title: Title,
               private meta: Meta) {
 
     this.getDataroute().subscribe(data => {

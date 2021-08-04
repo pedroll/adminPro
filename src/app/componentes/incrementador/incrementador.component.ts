@@ -8,7 +8,7 @@ import {Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} f
 export class IncrementadorComponent implements OnInit {
 
   // impediamos ver entrads erroneas en el input, referenciamos con # el input al que queremos c ambiar valor
-  @ViewChild('porcentajex', {static: false}) campoInput: ElementRef;
+  @ViewChild('porcentajex') campoInput: ElementRef;
   // en el componente hijo rrecibimos con @Input
   @Input() leyenda = 'Leyenda';
   @Input() porcentaje = 50;
