@@ -3,6 +3,8 @@ import {CommonModule} from '@angular/common';
 import {FormsModule} from '@angular/forms';
 // Modulos
 import {SharedModule} from '../shared/shared.module';
+import {HIGHLIGHT_OPTIONS, HighlightModule} from 'ngx-highlightjs';
+import {ComponentsModule} from "../components/components.module";
 // rutas
 import {PagesRoutingModule} from './pages-routing.module';
 // Componentes
@@ -14,12 +16,7 @@ import {PromesasComponent} from './promesas/promesas.component';
 import {RxjsComponent} from './rxjs/rxjs.component';
 import {AccountSettingsComponent} from './account-settings/account-settings.component';
 // temporal
-import {IncrementadorComponent} from '../components/incrementador/incrementador.component';
 // ng2-charts
-import {ChartsModule} from 'ng2-charts';
-import {DonutchartComponent} from '../components/donutchart/donutchart.component';
-// mostrar codigo
-import {HIGHLIGHT_OPTIONS, HighlightModule} from 'ngx-highlightjs';
 
 /**
  * Import specific languages to avoid importing everything
@@ -41,8 +38,6 @@ export function getHighlightLanguages() {
     DashboardComponent,
     ProgresComponent,
     Graficas1Component,
-    IncrementadorComponent,
-    DonutchartComponent,
     AccountSettingsComponent,
     PromesasComponent,
     RxjsComponent
@@ -53,11 +48,10 @@ export function getHighlightLanguages() {
     SharedModule,
     PagesRoutingModule,
     FormsModule,
-    ChartsModule,
+    ComponentsModule,
     HighlightModule
   ],
-  exports: [
-  ],
+  exports: [],
   providers: [
     // para mostrar codigo
     {

@@ -7,20 +7,25 @@ import {Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} f
 })
 export class IncrementadorComponent implements OnInit {
 
+  constructor() {
+  }
+
+  ngOnInit() {
+    this.claseBoton= `btn ${this.claseBoton}`;
+  }
   // impediamos ver entrads erroneas en el input, referenciamos con # el input al que queremos c ambiar valor
   @ViewChild('porcentajex') campoInput: ElementRef;
   // en el componente hijo rrecibimos con @Input
   @Input() leyenda = 'Leyenda';
   @Input() porcentaje = 50;
-
+  @Input() claseBoton: string = "btn btn-primary"
   // declaramos el emisor de evento
   @Output() cambioValor: EventEmitter<number> = new EventEmitter();
 
-  constructor() {
-  }
 
-  ngOnInit() {
-  }
+
+
+
 
   cambiarValor(incremento: number) {
 
@@ -43,6 +48,7 @@ export class IncrementadorComponent implements OnInit {
     this.cambioValor.emit(this.porcentaje);
   }
 
+  // cuando cambia valor incluso tipeando numero, evitamos que este fuera de rango
   enCambio(event: number) {
     // console.log(event);
     // const elementoHTML: any = document.getElementsByName('porcentaje')[0];
