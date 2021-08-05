@@ -1,11 +1,10 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {PagesRoutingModule} from './pages/pages-routing.module';
 
-import {LoginComponent} from './auth/login/login.component';
-import {RegisterComponent} from './auth/register/register.component';
-import {PagenofoundComponent} from './errors/pagenofound/pagenofound.component';
+import {PagesRoutingModule} from './pages/pages-routing.module';
 import {AuthRoutingRoutingModule} from "./auth/auth-routing.module";
+
+import {PagenofoundComponent} from './errors/pagenofound/pagenofound.component';
 
 const routes: Routes = [
 
@@ -21,7 +20,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, { useHash: true, relativeLinkResolution: 'legacy' }),
+    RouterModule.forRoot(routes, {useHash: true, relativeLinkResolution: 'legacy'}),
     PagesRoutingModule,
     AuthRoutingRoutingModule],
   exports: [RouterModule]
