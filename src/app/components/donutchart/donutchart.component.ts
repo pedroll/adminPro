@@ -12,7 +12,8 @@ export class DonutchartComponent implements OnInit {
     labels: ['Test1', 'test2', 'test3'],
     data: [24, 30, 46],
     type: 'doughnut',
-    leyenda: 'Test generico'
+    leyenda: 'Test generico',
+    colores: ['#40402b', '#DE525C', '#98C8E1']
   };
 
   constructor() {
