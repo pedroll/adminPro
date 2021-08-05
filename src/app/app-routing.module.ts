@@ -13,6 +13,7 @@ const routes: Routes = [
     // path: dashboard pages-routing
     // path: login auth-routing
     // path: register auth-routing
+    path: '**',
     component: PagenofoundComponent,
     data: {titulo: 'Pagina no encontrada', descripcion: 'Descripcion fascinante de Pagina no encontrada'}
   },
